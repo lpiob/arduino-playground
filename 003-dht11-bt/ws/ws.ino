@@ -4,7 +4,6 @@
 
 SoftwareSerial Genotronex(10, 11); // RX, TX
 #define dht_dpin 5
-int bt_status_pin=2;
 int ledpin=13; // led on D13 will show blink on / off
 int BluetoothData; // the data given from Computer
 
