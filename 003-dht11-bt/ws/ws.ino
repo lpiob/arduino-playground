@@ -4,6 +4,7 @@
 
 SoftwareSerial Genotronex(10, 11); // RX, TX
 #define dht_dpin 5
+int bt_status_pin=2;
 int ledpin=13; // led on D13 will show blink on / off
 int BluetoothData; // the data given from Computer
 
@@ -33,15 +34,18 @@ void loop() {
 
     
    }
-   
    // DHT
-   DHT.read11(dht_dpin);
-   Genotronex.print("Current humidity = ");
-   Genotronex.print(DHT.humidity);
+   DHT11.read(dht_dpin);
+   Genotronex.print("Humidity = ");
+   Genotronex.print(DHT11.humidity);
    Genotronex.print("%  ");
    Genotronex.print("temperature = ");
-   Genotronex.print(DHT.temperature); 
+   Genotronex.print(DHT11.temperature); 
    Genotronex.println("C  ");
-   delay(1000);// prepare for next data ...
+
+   digitalWrite(ledpin,1);   
+   delay(100);
+   digitalWrite(ledpin,0);
+   delay(4900);
 
 }
